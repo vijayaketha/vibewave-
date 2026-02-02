@@ -606,20 +606,24 @@ function playVideo(type) {
     if (currentMovie && currentMovie.trailer) {
         let trailerId = currentMovie.trailer;
 
-        // Robust ID Extraction
-        try {
+        // Robust ID Extraction using Regex
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = trailerId.match(regExp);
+
+        if (match && match[2].length === 11) {
+            trailerId = match[2];
+        } else {
+            console.warn('Could not extract video ID, using fallback logic for:', trailerId);
+            // Fallback: If it's already an embed URL, try to use it as is but we need controls, so we prefer the ID.
             if (trailerId.includes('/embed/')) {
-                trailerId = trailerId.split('/embed/')[1].split('?')[0];
-            } else if (trailerId.includes('v=')) {
-                trailerId = trailerId.split('v=')[1].split('&')[0];
-            } else if (trailerId.includes('youtu.be/')) {
-                trailerId = trailerId.split('youtu.be/')[1].split('?')[0];
+                const parts = trailerId.split('/embed/');
+                if (parts[1]) {
+                    trailerId = parts[1].split('?')[0];
+                }
             }
-        } catch (e) {
-            console.error('Error extracting YouTube ID:', e);
         }
 
-        // Create YouTube embed with controls enabled
+        // Create YouTube embed with controls enabled (Unmuted for main player)
         videoEmbed.innerHTML = `
             <iframe 
                 width="100%" 
@@ -631,7 +635,7 @@ function playVideo(type) {
                 title="${currentMovie.title} Trailer">
             </iframe>
         `;
-        console.log(`▶️ Playing YouTube trailer for: ${currentMovie.title} (${currentMovie.language})`);
+        console.log(`▶️ Playing YouTube trailer for: ${currentMovie.title}`);
         console.log(`🎬 YouTube ID: ${trailerId}`);
     } else {
         // Fallback message if no trailer available
