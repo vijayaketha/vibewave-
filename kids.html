@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse all Kids movies and shows on VibeWave - Your ultimate streaming destination">
+    <title>Kids - VibeWave</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <span>VibeWave</span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="tvshows.html">TV Shows</a></li>
+                <li><a href="kids.html" class="active">Kids</a></li>
+                <li><a href="mylist.html">My List</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search kids content...">
+                </div>
+
+                <button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div class="user-profile">
+                    <i class="fas fa-user-circle" style="font-size: 2rem;"></i>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1><i class="fas fa-child"></i> Kids TV & Movies</h1>
+            <p>Fun and entertainment for the little ones</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-group">
+                <label>Genre</label>
+                <select id="genreFilter" class="filter-select">
+                    <option value="all">All Genres</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Fantasy">Fantasy</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Year</label>
+                <select id="yearFilter" class="filter-select">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="older">Older</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Sort By</label>
+                <select id="sortFilter" class="filter-select">
+                    <option value="rating">Top Rated</option>
+                    <option value="title">Title (A-Z)</option>
+                    <option value="year">Newest First</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kids Grid -->
+    <main class="movies-grid-container">
+        <div class="movies-grid" id="kidsGrid">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-play-circle"></i>
+                    <span>VibeWave</span>
+                </div>
+                <p class="footer-description">
+                    Your ultimate streaming destination for the best movies, TV shows, and entertainment content.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="tvshows.html">TV Shows</a></li>
+                    <li><a href="kids.html">Kids</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Download App</h3>
+                <div class="app-buttons">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple"></i>
+                        <div>
+                            <small>Download on the</small>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i>
+                        <div>
+                            <small>Get it on</small>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 VibeWave. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Movie Modal -->
+    <div class="modal" id="movieModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Video Player -->
+            <div class="video-player-container" id="videoPlayerContainer" style="display: none;">
+                <button class="back-button" id="backButton">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <div id="videoEmbed" class="video-embed"></div>
+            </div>
+
+            <!-- Movie Detailed View Wrapper -->
+            <div id="modalDetails" class="modal-details-container">
+                <!-- Movie Info (shown before playing) -->
+                <div class="modal-hero" id="modalHero">
+                    <img id="modalPoster" src="" alt="Movie Poster">
+                </div>
+                <div class="modal-info" id="modalInfo">
+                    <h2 id="modalTitle">Movie Title</h2>
+                    <div class="modal-meta">
+                        <span id="modalRating">8.5</span>
+                        <span id="modalYear">2024</span>
+                        <span id="modalDuration">2h 15m</span>
+                    </div>
+                    <p id="modalDescription">Movie description goes here...</p>
+                    <div class="modal-buttons">
+                        <button class="btn btn-primary" id="playNowBtn">
+                            <i class="fas fa-play"></i> Play Now
+                        </button>
+                        <button class="btn btn-secondary" id="watchTrailerBtn">
+                            <i class="fas fa-film"></i> Watch Trailer
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-plus"></i> Add to List
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Kids page functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            loadKidsContent();
+            initializeKidsFilters();
+        });
+
+        function loadKidsContent() {
+            const grid = document.getElementById('kidsGrid');
+            if (grid && typeof movieDatabase !== 'undefined' && movieDatabase.kids) {
+                renderMovies(grid, movieDatabase.kids);
+            }
+        }
+
+        function initializeKidsFilters() {
+            const genreFilter = document.getElementById('genreFilter');
+            const yearFilter = document.getElementById('yearFilter');
+            const sortFilter = document.getElementById('sortFilter');
+
+            if (genreFilter && sortFilter) {
+                [genreFilter, sortFilter].forEach(filter => {
+                    filter.addEventListener('change', applyKidsFilters);
+                });
+            }
+            if (yearFilter) {
+                yearFilter.addEventListener('change', applyKidsFilters);
+            }
+        }
+
+        function applyKidsFilters() {
+            if (typeof movieDatabase === 'undefined' || !movieDatabase.kids) return;
+
+            let content = [...movieDatabase.kids];
+
+            // Genre filter
+            const genre = document.getElementById('genreFilter').value;
+            if (genre !== 'all') {
+                content = content.filter(item => item.genre === genre);
+            }
+
+            // Year filter
+            const year = document.getElementById('yearFilter').value;
+            if (year !== 'all') {
+                if (year === 'older') {
+                    content = content.filter(item => item.year < 2023);
+                } else {
+                    content = content.filter(item => item.year.toString() === year);
+                }
+            }
+
+            // Sort
+            const sort = document.getElementById('sortFilter').value;
+            if (sort === 'rating') {
+                content.sort((a, b) => b.rating - a.rating);
+            } else if (sort === 'title') {
+                content.sort((a, b) => a.title.localeCompare(b.title));
+            } else if (sort === 'year') {
+                content.sort((a, b) => b.year - a.year);
+            }
+
+            // Apply Search Query if exists
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput && searchInput.value) {
+                const query = searchInput.value.toLowerCase().trim();
+                content = content.filter(item =>
+                    item.title.toLowerCase().includes(query) ||
+                    item.genre.toLowerCase().includes(query)
+                );
+            }
+
+            const grid = document.getElementById('kidsGrid');
+            renderMovies(grid, content);
+        }
+
+        // Expose filter for global script search
+        window.applyKidsFilter = applyKidsFilters;
+    </script>
+</body>
+
+</html>

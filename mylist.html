@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your personal watchlist on VibeWave">
+    <title>My List - VibeWave</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <span>VibeWave</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="tvshows.html">TV Shows</a></li>
+                <li><a href="kids.html">Kids</a></li>
+                <li><a href="mylist.html" class="active">My List</a></li>
+            </ul>
+
+            <!-- Right Section -->
+            <div class="nav-right">
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search my list...">
+                </div>
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <i class="fas fa-user-circle" style="font-size: 2rem;"></i>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1><i class="fas fa-list"></i> My List</h1>
+            <p>Your personalized watchlist</p>
+        </div>
+    </section>
+
+    <!-- My List Grid -->
+    <main class="movies-grid-container">
+        <div id="emptyListMessage" style="display: none; text-align: center; padding: 4rem 2rem;">
+            <i class="fas fa-folder-open"
+                style="font-size: 4rem; color: var(--text-secondary); margin-bottom: 1rem; opacity: 0.5;"></i>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Your list is empty</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Add movies and shows to your list to keep
+                track of what you want to watch.</p>
+            <a href="index.html" class="btn btn-primary" style="display: inline-flex;">Browse Content</a>
+        </div>
+        <div class="movies-grid" id="myListGrid">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-play-circle"></i>
+                    <span>VibeWave</span>
+                </div>
+                <p class="footer-description">
+                    Your ultimate streaming destination for the best movies, TV shows, and entertainment content.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="tvshows.html">TV Shows</a></li>
+                    <li><a href="mylist.html">My List</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Download App</h3>
+                <div class="app-buttons">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple"></i>
+                        <div>
+                            <small>Download on the</small>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i>
+                        <div>
+                            <small>Get it on</small>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 VibeWave. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Movie Modal -->
+    <div class="modal" id="movieModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Video Player -->
+            <div class="video-player-container" id="videoPlayerContainer" style="display: none;">
+                <button class="back-button" id="backButton">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <div id="videoEmbed" class="video-embed"></div>
+            </div>
+
+            <!-- Movie Detailed View Wrapper -->
+            <div id="modalDetails" class="modal-details-container">
+                <!-- Movie Info (shown before playing) -->
+                <div class="modal-hero" id="modalHero">
+                    <img id="modalPoster" src="" alt="Movie Poster">
+                </div>
+                <div class="modal-info" id="modalInfo">
+                    <h2 id="modalTitle">Movie Title</h2>
+                    <div class="modal-meta">
+                        <span id="modalRating">8.5</span>
+                        <span id="modalYear">2024</span>
+                        <span id="modalDuration">2h 15m</span>
+                    </div>
+                    <p id="modalDescription">Movie description goes here...</p>
+                    <div class="modal-buttons">
+                        <button class="btn btn-primary" id="playNowBtn">
+                            <i class="fas fa-play"></i> Play Now
+                        </button>
+                        <button class="btn btn-secondary" id="watchTrailerBtn">
+                            <i class="fas fa-film"></i> Watch Trailer
+                        </button>
+                        <button class="btn btn-secondary" id="addToListBtn">
+                            <i class="fas fa-minus"></i> Remove from List
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initializeMyList === 'function') {
+                initializeMyList();
+            }
+        });
+    </script>
+</body>
+
+</html>
